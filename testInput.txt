@@ -1,0 +1,5 @@
+45 word 56 (second) word;
+45 + 56;
+45 * 20;
+20 div 10;
+test := 10;
