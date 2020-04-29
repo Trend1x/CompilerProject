@@ -37,57 +37,60 @@ comment     (%.*\n)
 {white}     {/*White Space ignored*/}
 {comment}   {/*Comments ignored*/}
 
-{num}       printf("NUM\t\t%s\n", yytext);
+{num}       {printf("NUM\t\t%s\n", yytext);}
 
-{ident}     printf("IDENT\t\t%s\n", yytext);
+{boollit}   {printf("BOOLLIT\t\t%s\n", yytext);}
 
-{lp}        printf("LP\n");
+{ident}     {printf("IDENT\t\t%s\n", yytext);}
 
-{rp}        printf("RP\n");
+{lp}        {printf("LP\n");}
 
-{assg}      printf("ASGN\n");
+{rp}        {printf("RP\n");}
 
-{sc}        printf("SC\n");
+{assg}      {printf("ASGN\n");}
 
-{op2}       printf("OP2\t\t%s\n", yytext);
+{sc}        {printf("SC\n");}
 
-{op3}       printf("OP3\t\t%s\n", yytext);
+{op2}       {printf("OP2\t\t%s\n", yytext);}
 
-{op4}       printf("OP4\t\t%s\n", yytext);
+{op3}       {printf("OP3\t\t%s\n", yytext); }
 
-{if}        printf("IF\n");
+{op4}       {printf("OP4\t\t%s\n", yytext);}
 
-{then}      printf("THEN\n");
+{if}        {printf("IF\n");}
 
-{else}      printf("ELSE\n");
+{then}      {printf("THEN\n");}
 
-{begin}     printf("BEGIN\n");
+{else}      {printf("ELSE\n"); }
 
-{end}       printf("END\n");
+{begin}     {printf("BEGIN\n");}
 
-{while}     printf("WHILE\n");
+{end}       {printf("END\n");}
 
-{do}        printf("DO\n");
+{while}     {printf("WHILE\n");}
 
-{program}   printf("PROGRAM\n");
+{do}        {printf("DO\n");}
 
-{var}       printf("VAR\n");
+{program}   {printf("PROGRAM\n");}
 
-{as}        printf("AS\n");
+{var}       {printf("VAR\n");}
 
-{int}       printf("INT\n");
+{as}        {printf("AS\n");}
 
-{bool}      printf("BOOL\n");
+{int}       {printf("INT\n");}
 
-{writeint}  printf("WRITEINT\n");
+{bool}      {printf("BOOL\n");}
 
-{readint}   printf("READINT\n");
+{writeint}  {printf("WRITEINT\n");}
 
-
+{readint}   {printf("READINT\n");}
 
 %%
 
-int yywrap(){} 
+int yywrap(){
+    return 1;
+} 
+
 
 int main(int argc, char **argv){
 

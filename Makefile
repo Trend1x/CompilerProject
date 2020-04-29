@@ -1,9 +1,15 @@
 CC=gcc
 CFLAGS=
-LexerFile=project1a
+BaseFileName=project2a
+FlexFlags=
+BisonFlags= -d
 
-project1A: lex.yy.c
-	$(CC) $(CCFLAGS) -o project1A lex.yy.c
+project2a:  $(BaseFileName).tab.c lex.yy.c
+	$(CC) $(CCFLAGS) -o prog  $(BaseFileName).tab.c lex.yy.c
 
-lex.yy.c: $(LexerFile).l
-	flex $(LexerFile).l
+$(BaseFileName).tab.c: $(BaseFileName).y
+	bison $(BisonFlags) $(BaseFileName).y
+
+lex.yy.c: $(BaseFileName).l
+	flex $(FlexFlags) $(BaseFileName).l
+
